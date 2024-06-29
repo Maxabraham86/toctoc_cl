@@ -2,13 +2,14 @@ from django.db import models
 
 # Create your models here.
 class Arrendatario(models.Model):
+    tipo=(('arrendatario'), ('arrendador'))
     nombres = models.CharField(max_length=255)
     apellidos = models.CharField(max_length=255)
     rut= models.CharField(max_length=10)
     direccion= models.CharField(max_length=255)
     telefono_personal= models.CharField(max_length=20)
     correo_e = models.EmailField()
-    tipo_usuario= models.CharField(max_length=50)
+    tipo_usuario= models.CharField(max_length=50, choices=tipo)
     
 
 class Arriendo(models.Model):
