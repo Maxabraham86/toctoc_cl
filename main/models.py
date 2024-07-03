@@ -1,8 +1,9 @@
 from django.db import models
 
 # Create your models here.
-class Arrendatario(models.Model):
-    tipo=(('arrendatario'), ('arrendador'))
+class Usuario(models.Model):
+    tipo=(('u','arrendatario'), ('p','arrendador'))
+    nombre_usuario= models.CharField(max_length=120, default='vacio')
     nombres = models.CharField(max_length=255)
     apellidos = models.CharField(max_length=255)
     rut= models.CharField(max_length=10)
@@ -12,8 +13,8 @@ class Arrendatario(models.Model):
     tipo_usuario= models.CharField(max_length=50, choices=tipo)
     
 
-class Arriendo(models.Model):
-    inmueble=(('c','casa'), ('d','departamento'), ('p','parcela'))
+class Inmueble(models.Model):
+    inmueble_tipo=(('c','casa'), ('d','departamento'), ('p','parcela'))
     nombre = models.CharField(max_length=50)
     descripcion=models.CharField(max_length=255)
     M2_construidos = models.IntegerField()
@@ -22,5 +23,6 @@ class Arriendo(models.Model):
     cant_habitacion= models.IntegerField()
     cant_baños=models.IntegerField()
     direccion= models.CharField(max_length=255)
-    comuna= models.CharField(max_length=100, choices=inmueble)
+    comuna= models.CharField(max_length=50)
+    tipo_vivienda= models.CharField(max_length=100, choices=inmueble_tipo, default='desconocido')
     precio_mensual= models.IntegerField()
