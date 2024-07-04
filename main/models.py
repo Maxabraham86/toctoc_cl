@@ -11,13 +11,13 @@ class UserProfile(models.Model):
     direccion = models.CharField(max_length=255, blank=False)
     telefono_personal = models.CharField(max_length=20, blank=False)
     user_type = models.CharField(max_length=20, choices=tipo_de_usuario)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='userprofile', on_delete=models.CASCADE)
     
     def __str__(self):
         nombre = self.user.first_name
         apellido = self.user.last_name
         usuario = self.user.username
-        tipo_usuario = self.tipo_de_usuario
+        tipo_usuario = self.user_type
         return f'{nombre} {apellido} | {usuario} | {tipo_usuario}'
     
     

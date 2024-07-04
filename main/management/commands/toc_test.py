@@ -7,17 +7,17 @@ class Command(BaseCommand):
 
     def handle (self, *args, **kwargs):
         usuario = User.objects.create_user(
-            username = 'RR',
-            first_name = 'Roguer',
-            last_name = 'Rabit',
+            username = 'PT',
+            first_name = 'Peter',
+            last_name = 'Pan',
             password = '1234',
             email= 'aaa@bbb.ccc'
         )
         UserProfile.objects.create( 
-            rut="15852258-3",
+            rut="19.123.456-6",
             direccion="calle tinta, comuna Toonlandia,  region Talca",
-            telefono_personal='956482152',
-            user_type= 'arrendatario',
+            telefono_personal='966618410',
+            user_type= 'arrendador',
             user=usuario,
             
         )
