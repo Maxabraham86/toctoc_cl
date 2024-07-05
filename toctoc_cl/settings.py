@@ -50,6 +50,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS= [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000'
+]
+
+
 ROOT_URLCONF = 'toctoc_cl.urls'
 
 TEMPLATES = [
@@ -104,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
