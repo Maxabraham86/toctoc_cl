@@ -21,10 +21,13 @@ class Command(BaseCommand):
         #     user=usuario,
             
         # )
-
+    #1 ero se hace .create() para generar la variable,
+    #2 para pruebas se usa el metodo .get() para obtener la cariable y seguir el codigo de la prueba
+    
         comuna1 = Comuna.objects.get(nombre='Comuna1')
         comuna2 = Comuna.objects.get(nombre ='Comuna2')
-        comuna3 = Comuna.objects.get(nombre ='Comuna3')
+        comuna3= Comuna.objects.get(nombre ='Comuna3')
+        comuna4= Comuna.objects.get(nombre ='Comuna4')
         
         inmueble1= Inmueble.objects.create(
             nombre='Casa de Bety',
@@ -66,20 +69,35 @@ class Command(BaseCommand):
             cant_banos=8
         )
         
-        # Bano.objects.create(inmueble=inmueble1, cantidad =2)
-        # Habitacion.objects.create(inmueble=inmueble1, cantidad =2)
-        # Estacionamiento.objects.create(inmueble=inmueble1, cantidad=1, cubierto=True)
-
-        # Bano.objects.create(inmueble=inmueble2, cantidad =2)
-        # Habitacion.objects.create(inmueble=inmueble2, cantidad =3)
-        # Estacionamiento.objects.create(inmueble=inmueble2, cantidad=2, cubierto=True)
+        inmueble4= Inmueble.objects.create(
+            nombre='Bolsos Cerrado',
+            descripcion ='Gran casa en hermosa y apasible villa rural',
+            M2_construidos= 800,
+            M2_totales_terreno=1000,
+            direccion='ls Comarca 24',
+            comuna =comuna4,
+            tipo_vivienda = 'par',
+            precio_mensual= 1500000,
+            cant_estacionamientos =8,
+            cant_habitacion =12,
+            cant_banos=5
+        )
         
-        # Bano.objects.create(inmueble=inmueble3, cantidad =6)
-        # Habitacion.objects.create(inmueble=inmueble3, cantidad =12)
-        # Estacionamiento.objects.create(inmueble=inmueble3, cantidad=10, cubierto=True)
+        inmueble5= Inmueble.objects.create(
+            nombre='El Poni Pisador',
+            descripcion ='Taberna y hostal. Inn',
+            M2_construidos= 200,
+            M2_totales_terreno=250,
+            direccion='Bree 524',
+            comuna =comuna4,
+            tipo_vivienda = 'casa',
+            precio_mensual= 750000,
+            cant_estacionamientos =10,
+            cant_habitacion =15,
+            cant_banos=10
+        )
         
-        
-        print('Datos de prueba agregaod correctamente')
+        print('Datos de prueba agregados correctamente')
 
 
 
